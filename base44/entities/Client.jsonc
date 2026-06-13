@@ -1,0 +1,71 @@
+{
+  "name": "Client",
+  "type": "object",
+  "properties": {
+    "company_name": {
+      "type": "string",
+      "description": "Employer/company name"
+    },
+    "ein": {
+      "type": "string",
+      "description": "Employer Identification Number"
+    },
+    "contact_name": {
+      "type": "string",
+      "description": "Primary contact person"
+    },
+    "contact_email": {
+      "type": "string",
+      "description": "Primary contact email"
+    },
+    "contact_phone": {
+      "type": "string",
+      "description": "Primary contact phone"
+    },
+    "address": {
+      "type": "string",
+      "description": "Company address"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "zip": {
+      "type": "string"
+    },
+    "industry": {
+      "type": "string"
+    },
+    "total_employees": {
+      "type": "number",
+      "description": "Total number of employees"
+    },
+    "plan_year_start": {
+      "type": "string",
+      "format": "date",
+      "description": "Plan year start date (e.g., 01/01)"
+    },
+    "plan_year_end": {
+      "type": "string",
+      "format": "date",
+      "description": "Plan year end date (e.g., 12/31)"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "prospect"
+      ],
+      "default": "active"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "company_name"
+  ]
+}

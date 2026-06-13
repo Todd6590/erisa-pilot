@@ -1,0 +1,118 @@
+{
+  "name": "ComplianceTask",
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "type": "string",
+      "description": "Reference to Client"
+    },
+    "plan_id": {
+      "type": "string",
+      "description": "Reference to BenefitPlan (optional)"
+    },
+    "task_type": {
+      "type": "string",
+      "enum": [
+        "form_5500",
+        "schedule_a",
+        "form_m1",
+        "spd",
+        "smm",
+        "sbc",
+        "sar",
+        "wrap_document",
+        "plan_document",
+        "fidelity_bond",
+        "form_5558_extension",
+        "cobra_notice",
+        "hipaa_notice",
+        "medicare_part_d_notice",
+        "whcra_notice",
+        "newborns_notice",
+        "chipra_notice",
+        "aca_reporting_1094",
+        "aca_reporting_1095",
+        "pcori_fee",
+        "transitional_reinsurance_fee",
+        "annual_enrollment",
+        "plan_audit",
+        "other"
+      ],
+      "description": "Type of compliance task"
+    },
+    "title": {
+      "type": "string",
+      "description": "Task title"
+    },
+    "description": {
+      "type": "string"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "reminder_date": {
+      "type": "string",
+      "format": "date",
+      "description": "When to send reminder"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "not_started",
+        "in_progress",
+        "pending_review",
+        "completed",
+        "overdue",
+        "na"
+      ],
+      "default": "not_started"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "default": "medium"
+    },
+    "assigned_to": {
+      "type": "string",
+      "description": "Person responsible"
+    },
+    "plan_year": {
+      "type": "string",
+      "description": "Plan year (e.g., 2024)"
+    },
+    "filing_year": {
+      "type": "string",
+      "description": "Filing year"
+    },
+    "extension_filed": {
+      "type": "boolean",
+      "default": false
+    },
+    "extended_due_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "completed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "document_url": {
+      "type": "string",
+      "description": "Uploaded document URL"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "client_id",
+    "task_type",
+    "title"
+  ]
+}

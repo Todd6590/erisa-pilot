@@ -1,0 +1,77 @@
+{
+  "name": "ComplianceDocument",
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "type": "string",
+      "description": "Reference to Client"
+    },
+    "plan_id": {
+      "type": "string",
+      "description": "Reference to BenefitPlan"
+    },
+    "task_id": {
+      "type": "string",
+      "description": "Reference to ComplianceTask"
+    },
+    "document_type": {
+      "type": "string",
+      "enum": [
+        "form_5500",
+        "schedule_a",
+        "schedule_c",
+        "schedule_h",
+        "schedule_i",
+        "form_m1",
+        "form_5558",
+        "spd",
+        "smm",
+        "sbc",
+        "sar",
+        "wrap_document",
+        "plan_document",
+        "trust_agreement",
+        "fidelity_bond",
+        "cobra_notice",
+        "hipaa_notice",
+        "aca_1094",
+        "aca_1095",
+        "audit_report",
+        "carrier_certificate",
+        "other"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "file_url": {
+      "type": "string"
+    },
+    "plan_year": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "final",
+        "filed",
+        "distributed",
+        "archived"
+      ],
+      "default": "draft"
+    },
+    "version": {
+      "type": "number",
+      "default": 1
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "client_id",
+    "document_type",
+    "title"
+  ]
+}

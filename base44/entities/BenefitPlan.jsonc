@@ -1,0 +1,100 @@
+{
+  "name": "BenefitPlan",
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "type": "string",
+      "description": "Reference to Client"
+    },
+    "plan_name": {
+      "type": "string",
+      "description": "Name of the benefit plan"
+    },
+    "plan_type": {
+      "type": "string",
+      "enum": [
+        "medical",
+        "dental",
+        "vision",
+        "life",
+        "disability_std",
+        "disability_ltd",
+        "fsa",
+        "hsa",
+        "hra",
+        "eap",
+        "wrap",
+        "401k",
+        "other"
+      ],
+      "description": "Type of benefit plan"
+    },
+    "carrier": {
+      "type": "string",
+      "description": "Insurance carrier name"
+    },
+    "policy_number": {
+      "type": "string"
+    },
+    "plan_number": {
+      "type": "string",
+      "description": "3-digit plan number for Form 5500"
+    },
+    "participant_count": {
+      "type": "number",
+      "description": "Number of eligible participants"
+    },
+    "annual_premium": {
+      "type": "number",
+      "description": "Total annual premium"
+    },
+    "broker_commission": {
+      "type": "number",
+      "description": "Broker commission amount"
+    },
+    "effective_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "renewal_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "is_erisa_covered": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether plan is ERISA-covered"
+    },
+    "is_mewa": {
+      "type": "boolean",
+      "default": false,
+      "description": "Multiple Employer Welfare Arrangement"
+    },
+    "funding_type": {
+      "type": "string",
+      "enum": [
+        "fully_insured",
+        "self_funded",
+        "level_funded"
+      ],
+      "default": "fully_insured"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "terminated",
+        "pending"
+      ],
+      "default": "active"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "client_id",
+    "plan_name",
+    "plan_type"
+  ]
+}
