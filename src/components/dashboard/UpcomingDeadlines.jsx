@@ -36,8 +36,11 @@ export default function UpcomingDeadlines({ tasks, clients }) {
   const clientMap = {};
   clients.forEach(c => { clientMap[c.id] = c.company_name; });
 
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
   const upcoming = tasks
-    .filter(t => t.due_date && t.status !== "completed" && t.status !== "na")
+    .filter(t => t.due_date && t.status !== "completed" && t.status !== "na" && new Date(t.due_date) >= today)
     .sort((a, b) => new Date(a.due_date) - new Date(b.due_date))
     .slice(0, 8);
 
