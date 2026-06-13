@@ -1,5 +1,5 @@
 import React from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { base44 } from "@/api/base44Client";
 import { Building2, ClipboardList, AlertTriangle, CheckCircle2 } from "lucide-react";
 import PageHeader from "../components/shared/PageHeader";
@@ -7,8 +7,11 @@ import StatsRow from "../components/dashboard/StatsRow";
 import UpcomingDeadlines from "../components/dashboard/UpcomingDeadlines";
 import ComplianceOverview from "../components/dashboard/ComplianceOverview";
 import ThresholdAlerts from "../components/dashboard/ThresholdAlerts";
+import SampleDataBanner from "../components/dashboard/SampleDataBanner";
 
 export default function Dashboard() {
+  const queryClient = useQueryClient();
+
   const { data: clients = [] } = useQuery({
     queryKey: ["clients"],
     queryFn: () => base44.entities.Client.list(),
@@ -38,6 +41,7 @@ export default function Dashboard() {
 
   return (
     <div>
+      <SampleDataBanner onCleared={() => queryClient.invalidateQueries()} />
       <PageHeader
         title="Dashboard"
         description="ERISA compliance overview for all your clients"
