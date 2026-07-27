@@ -1,0 +1,56 @@
+{
+  "name": "RegulatoryUpdate",
+  "type": "object",
+  "properties": {
+    "research_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "title": {
+      "type": "string",
+      "description": "Headline for the weekly research summary"
+    },
+    "summary": {
+      "type": "string",
+      "description": "Plain-language overview of findings"
+    },
+    "has_updates": {
+      "type": "boolean",
+      "default": false
+    },
+    "findings": {
+      "type": "string",
+      "description": "Detailed Markdown of changes, new rules, and items to act on"
+    },
+    "sources": {
+      "type": "string",
+      "description": "Newline-separated authoritative URLs reviewed"
+    },
+    "document_types_checked": {
+      "type": "string",
+      "description": "Comma-separated document types reviewed this run"
+    }
+  },
+  "required": [
+    "research_date",
+    "title"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

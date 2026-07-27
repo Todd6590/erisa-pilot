@@ -26,6 +26,7 @@ const navItems = [
   { path: "/documents", icon: FolderOpen, label: "Documents" },
   { path: "/filings", icon: FileText, label: "Filing Center" },
   { path: "/knowledge", icon: BookOpen, label: "ERISA Guide" },
+  { path: "/document-builder", icon: FileText, label: "Document Builder" },
 ];
 
 export default function Sidebar({ collapsed, setCollapsed }) {

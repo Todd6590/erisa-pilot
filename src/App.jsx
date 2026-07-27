@@ -21,6 +21,7 @@ import Compliance from './pages/Compliance';
 import Documents from './pages/Documents';
 import FilingCenter from './pages/FilingCenter';
 import ERISAGuide from './pages/ERISAGuide';
+import DocumentBuilder from './pages/DocumentBuilder';
 import Settings from './pages/Settings';
 
 const AuthenticatedApp = () => {
@@ -60,6 +61,7 @@ const AuthenticatedApp = () => {
           <Route path="/documents" element={<Documents />} />
           <Route path="/filings" element={<FilingCenter />} />
           <Route path="/knowledge" element={<ERISAGuide />} />
+          <Route path="/document-builder" element={<DocumentBuilder />} />
           <Route path="/settings" element={<Settings />} />
         </Route>
       </Route>
