@@ -43,7 +43,7 @@ export default function Sidebar({ collapsed, setCollapsed }) {
         </div>
         {!collapsed && (
           <div className="overflow-hidden">
-            <h1 className="font-heading font-bold text-sm text-white tracking-tight">ERIS Pilot</h1>
+            <h1 className="font-heading font-bold text-sm text-white tracking-tight">ERISA Pilot</h1>
             <p className="text-[10px] text-sidebar-foreground/60">Broker Compliance Suite</p>
           </div>
         )}
