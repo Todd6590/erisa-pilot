@@ -3,12 +3,13 @@ import { CREATABLE_DOC_TYPES, AUTHORITIES } from '../../shared/documentTemplates
 
 function escapeHtml(str) {
   if (str == null) return '';
+  const amp = String.fromCharCode(38);
   return String(str)
-    .replace(/&/g, '&')
-    .replace(/</g, '<')
-    .replace(/>/g, '>')
-    .replace(/"/g, '"')
-    .replace(/'/g, '&#39;');
+    .replace(/&/g, amp + 'amp;')
+    .replace(/</g, amp + 'lt;')
+    .replace(/>/g, amp + 'gt;')
+    .replace(/"/g, amp + 'quot;')
+    .replace(/'/g, amp + '#39;');
 }
 
 export default async function(req: Request): Promise<Response> {

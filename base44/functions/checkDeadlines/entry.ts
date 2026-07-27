@@ -2,12 +2,13 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.31';
 
 function escapeHtml(str) {
   if (str == null) return '';
+  const amp = String.fromCharCode(38);
   return String(str)
-    .replace(/&/g, '&')
-    .replace(/</g, '<')
-    .replace(/>/g, '>')
-    .replace(/"/g, '"')
-    .replace(/'/g, '&#39;');
+    .replace(/&/g, amp + 'amp;')
+    .replace(/</g, amp + 'lt;')
+    .replace(/>/g, amp + 'gt;')
+    .replace(/"/g, amp + 'quot;')
+    .replace(/'/g, amp + '#39;');
 }
 
 Deno.serve(async (req) => {
