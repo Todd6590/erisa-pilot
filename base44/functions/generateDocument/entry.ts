@@ -21,12 +21,19 @@ export default async function(req: Request): Promise<Response> {
       }, { status: 400 });
     }
 
+    // Ownership check — prevent IDOR across client boundaries before using the service role.
     const client = await base44.asServiceRole.entities.Client.get(client_id);
     if (!client) return Response.json({ error: 'Client not found' }, { status: 404 });
+    if (client.created_by_id !== user.id && user.role !== 'admin') {
+      return Response.json({ error: 'Forbidden: you do not have access to this client' }, { status: 403 });
+    }
 
     let plan = null;
     if (plan_id) {
       plan = await base44.asServiceRole.entities.BenefitPlan.get(plan_id);
+      if (plan && plan.created_by_id !== user.id && user.role !== 'admin') {
+        return Response.json({ error: 'Forbidden: you do not have access to this plan' }, { status: 403 });
+      }
     }
 
     const year = plan_year || String(new Date().getFullYear());

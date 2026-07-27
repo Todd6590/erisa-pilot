@@ -249,13 +249,22 @@ export default function DocumentBuilder() {
             <div className="mt-6 border-t pt-4">
               <p className="text-xs font-semibold text-muted-foreground mb-2">Sources reviewed</p>
               <ul className="space-y-1">
-                {result.sources.map((s, i) => (
-                  <li key={i} className="text-xs">
-                    <a href={s} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline break-all inline-flex items-center gap-1">
-                      <ChevronRight className="w-3 h-3 shrink-0" /> {s}
-                    </a>
-                  </li>
-                ))}
+                {result.sources.map((s, i) => {
+                  const safe = typeof s === 'string' && /^https?:\/\//i.test(s);
+                  return (
+                    <li key={i} className="text-xs break-all">
+                      {safe ? (
+                        <a href={s} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline inline-flex items-center gap-1">
+                          <ChevronRight className="w-3 h-3 shrink-0" /> {s}
+                        </a>
+                      ) : (
+                        <span className="text-muted-foreground inline-flex items-center gap-1">
+                          <ChevronRight className="w-3 h-3 shrink-0" /> {s}
+                        </span>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           )}
