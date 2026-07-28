@@ -22,11 +22,11 @@ const navItems = [
   { path: "/", icon: LayoutDashboard, label: "Dashboard" },
   { path: "/clients", icon: Building2, label: "Clients" },
   { path: "/plans", icon: ClipboardList, label: "Benefit Plans" },
+  { path: "/document-builder", icon: FileText, label: "Document Builder" },
   { path: "/compliance", icon: CalendarCheck, label: "Compliance Tasks" },
   { path: "/documents", icon: FolderOpen, label: "Documents" },
   { path: "/filings", icon: FileText, label: "Filing Center" },
   { path: "/knowledge", icon: BookOpen, label: "ERISA Guide" },
-  { path: "/document-builder", icon: FileText, label: "Document Builder" },
 ];
 
 export default function Sidebar({ collapsed, setCollapsed }) {
