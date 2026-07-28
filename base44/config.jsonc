@@ -1,5 +1,5 @@
 {
-  "name": "ERISA Pilot",
+  "name": "ERISA Guide",
   "site": {
     "installCommand": "npm install",
     "buildCommand": "npm run build",

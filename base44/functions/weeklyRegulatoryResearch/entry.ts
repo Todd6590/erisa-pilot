@@ -81,8 +81,8 @@ Return a JSON object:
     try {
       const admins = await base44.asServiceRole.entities.User.list();
       const subject = result.has_updates
-        ? `[ERISA Pilot] Regulatory Updates Found — Weekly Scan ${today}`
-        : `[ERISA Pilot] No Material Regulatory Changes — Weekly Scan ${today}`;
+        ? `[ERISA Guide] Regulatory Updates Found — Weekly Scan ${today}`
+        : `[ERISA Guide] No Material Regulatory Changes — Weekly Scan ${today}`;
       const body = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <div style="background: #1e3a5f; color: white; padding: 20px; border-radius: 8px 8px 0 0;">
@@ -90,8 +90,8 @@ Return a JSON object:
           </div>
           <div style="padding: 24px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 8px 8px;">
             <p>${escapeHtml(result.summary || 'Scan complete.')}</p>
-            <p style="margin-top:16px;"><strong>Action required:</strong> Review the full findings in ERISA Pilot under the Document Builder page.</p>
-            <p style="color:#6b7280;font-size:12px;margin-top:24px;">This is an automated message from ERISA Pilot.</p>
+            <p style="margin-top:16px;"><strong>Action required:</strong> Review the full findings in ERISA Guide under the Document Builder page.</p>
+            <p style="color:#6b7280;font-size:12px;margin-top:24px;">This is an automated message from ERISA Guide.</p>
           </div>
         </div>`;
       for (const a of admins) {
